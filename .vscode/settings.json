@@ -1,0 +1,17 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\Woody\\.platformio\\penv\\Scripts;C:\\Users\\Woody\\.platformio\\penv;C:\\Users\\Woody\\.platformio\\python27\\;C:\\Users\\Woody\\.platformio\\python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Strawberry\\c\\bin;C:\\Strawberry\\perl\\site\\bin;C:\\Strawberry\\perl\\bin;C:\\Software\\Qt5.13.0\\5.13.0\\mingw73_32\\bin;C:\\Software\\Qt5.13.0\\Tools\\mingw730_32\\bin;C:\\Software\\HI-TECH Software\\PICC\\9.83\\bin;C:\\Software\\Git\\cmd;C:\\Users\\Woody\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Software\\Microsoft VS Code\\bin;C:\\Users\\Woody\\.platformio\\python27\\;C:\\Users\\Woody\\.platformio\\python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\dotnet\\;C:\\Strawberry\\c\\bin;C:\\Strawberry\\perl\\site\\bin;C:\\Strawberry\\perl\\bin;C:\\Software\\Qt5.13.0\\5.13.0\\mingw73_32\\bin;C:\\Software\\Qt5.13.0\\Tools\\mingw730_32\\bin;C:\\Software\\HI-TECH Software\\PICC\\9.83\\bin;C:\\Software\\Git\\cmd;C:\\Users\\Woody\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Software\\Microsoft VS Code\\bin",
+        "PLATFORMIO_CALLER": "vscode"
+    },
+    "files.associations": {
+        "camera.h": "c",
+        "quirc.h": "c",
+        "bitmap.h": "c",
+        "camera_common.h": "c",
+        "qr_recoginize.h": "c",
+        "sdcard.h": "c",
+        "sdmmc_cmd.h": "c",
+        "diskio.h": "c",
+        "sdmmc_host.h": "c"
+    }
+}
