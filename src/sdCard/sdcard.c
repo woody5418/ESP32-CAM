@@ -1,9 +1,3 @@
-/*
- * led.c
- *
- *  Created on: 2017年12月11日
- *      Author: ai-thinker
- */
 #include "sdcard.h"
 
 /*

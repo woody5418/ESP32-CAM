@@ -14,7 +14,8 @@ char JumpPointAnalysis_240(void);
 void JumpPointAnalysis_320(char *picture);
 char JumpPointAnalysis_blue(char *picture);
 char CharacterSegmentation(void);
-uint16_t NormalizationAlgorithm(char *picture,uint16_t k1_t,uint16_t kk1_t);
+char * CharacterCompare(char *data,uint8_t BitNum);
+uint16_t NormalizationAlgorithm(char *picture,uint16_t k_t,uint16_t kk_t,uint16_t num);
 
 
 #endif 

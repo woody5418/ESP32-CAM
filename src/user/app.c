@@ -1,29 +1,37 @@
 #include "user_config.h"
 #include "driver/gpio.h"
-#include "sdCard/sdcard.h"
-#include "ocrplate/ocrplate.h"
 #include "../camera/include/camera.h"
 #include "../camera/include/bitmap.h"
 #include "../camera/camera_common.h"
+#include "ocrplate/ocrplate.h"
+#include "sdCard/sdcard.h"
 #include "qr_recoginize.h"
+#include "track/track.h"
 #include "led.h"
 
-#define MODE_SDCARD_JPEG    0
-#define MODE_QUIRC_GARY     0
-#define MODE_OCR_SCAN       1
+#define MODE_SDCARD_JPEG    0   //SD卡
+#define MODE_QUIRC_GARY     0   //二维码识别
+#define MODE_OCR_SCAN       0   //车牌识别  准确率不够
+#define MODE_TRACK_JPEG     1   //循迹（色块）
 
 #if MODE_SDCARD_JPEG
 #define CAMERA_PIXEL_FORMAT CAMERA_PF_JPEG
 #define CAMERA_FRAME_SIZE CAMERA_FS_QVGA
-
 static uint32_t sd_savename = 0;
 #endif
+
 #if MODE_QUIRC_GARY
 #define CAMERA_PIXEL_FORMAT CAMERA_PF_GRAYSCALE
 #define CAMERA_FRAME_SIZE CAMERA_FS_QVGA
 #endif
+
 #if MODE_OCR_SCAN
 #define CAMERA_PIXEL_FORMAT CAMERA_PF_GRAYSCALE
+#define CAMERA_FRAME_SIZE CAMERA_FS_QVGA
+#endif
+
+#if MODE_TRACK_JPEG
+#define CAMERA_PIXEL_FORMAT CAMERA_PF_JPEG
 #define CAMERA_FRAME_SIZE CAMERA_FS_QVGA
 #endif
 
@@ -138,9 +146,20 @@ static void Camera_JPEG_Task(void *parm)
             ESP_LOGI(TAG,"camera width height is: %d ,%d ,%d",camera_get_fb_width(),camera_get_fb_height(),camera_get_data_size());
             Camera_Scan((char *)camera_get_fb());
         }
-#endif          
-        vTaskDelay(5000/portTICK_RATE_MS );
-        //vTaskDelay(10000/portTICK_RATE_MS );
+#endif    
+#if MODE_TRACK_JPEG
+         if(s_pixel_format == CAMERA_PF_JPEG){
+            esp_err_t err = camera_run();
+            if (err != ESP_OK) {
+                ESP_LOGD(TAG, "Camera capture failed with error = %d", err);
+                return;
+            }
+            ESP_LOGI(TAG,"camera width height is: %d ,%d ,%d",camera_get_fb_width(),camera_get_fb_height(),camera_get_data_size());
+            ESP_LOGI(TAG, "Free heap: %u", xPortGetFreeHeapSize());
+            Track_Find((char *)camera_get_fb());
+         }
+#endif      
+        vTaskDelay(1000/portTICK_RATE_MS );
     }
     
 }
