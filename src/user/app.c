@@ -156,7 +156,7 @@ static void Camera_JPEG_Task(void *parm)
             }
             ESP_LOGI(TAG,"camera width height is: %d ,%d ,%d",camera_get_fb_width(),camera_get_fb_height(),camera_get_data_size());
             ESP_LOGI(TAG, "Free heap: %u", xPortGetFreeHeapSize());
-            Track_Find((char *)camera_get_fb());
+            Track_Find((char *)camera_get_fb(),camera_get_data_size());
          }
 #endif      
         vTaskDelay(1000/portTICK_RATE_MS );

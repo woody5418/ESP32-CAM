@@ -7,6 +7,8 @@
 #include "track.h"
 
 
+static void Track_Finding_Task(void *parm);
+
 void Track_Find(char *picture,size_t data_t)
 {
     char *picture_t = NULL;
@@ -17,9 +19,12 @@ void Track_Find(char *picture,size_t data_t)
         return;
     }
     memcpy(picture_t,picture,data_t);
-    
+
+    xTaskCreate(Track_Finding_Task,"Track_Finding_Task",8192,picture_t,8,NULL);
 }
 
+
+void Track_Finding_Task(void *parm)
 
 
 
